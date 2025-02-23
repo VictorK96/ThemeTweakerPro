@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Tweaker Pro Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            color: #495059;
+            line-height:1;
+        }
+
+
+
+      
+        .sidebar {
+            width: 250px;
+            background: #f8f9fa;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #1B2430;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background: #DBEAFE;
+            color: #1B2430;
+        }
+        .sidebar a.active {
+            background: #DBEAFE;
+            color: #197AFF;
+            font-weight: bold;
+        }
+        .content {
+            margin-left: 280px;
+            padding: 40px;
+            flex: 1;
+            max-width: 800px; /* Adjust the width as needed */
+
+        }
+        .content h1 {
+            font-size: 32px;
+        }
+        .content h2 {
+            font-size: 28px;
+        }
+        .content h3 {
+            font-size: 24px;
+        }
+        .content h1, .content h2, .content h3 {
+            margin-top: 50px;
+            margin-bottom:12px;
+            color: #1B2430;
+        }
+        .info-box {
+            color:#49505A;
+            background: #e9f2ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .tip-box {
+            color:#5A5649;
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+      
+        code {
+            background: #f4f4f4;
+            border: 1px solid #e6e6e6;
+            padding: 0px 4px;
+            border-radius: 4px;
+            font-family: Consolas, "Courier New", monospace;
+        }
+
+        p, ol,ul{
+          margin:0;
+          line-height:1.2;
+        }
+      
+    </style>
+
+
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let navLinks = document.querySelectorAll(".sidebar a");
+            navLinks.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+                    navLinks.forEach(nav => nav.classList.remove("active"));
+                    this.classList.add("active");
+                });
+            });
+        });
+    </script>
+
+  
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#introduction" class="active">Theme Tweaker Pro</a>
+        <a href="#installation">Installation</a>
+        <a href="#launching">Quick-start</a>
+        <a href="#creating-theme">Creating a Theme</a>
+        <a href="#modifying-presets">Modifying Presets</a>
+        <a href="#resetting-presets">Resetting Presets</a>
+        <a href="#removing">Removing Theme Tweaker Pro</a>
+        <a href="#comparison">Color Tweaker vs Theme Tweaker</a>
+    </div>
+    <div class="content">
+        <h1 id="introduction">Theme Tweaker Pro for Visual Studio</h1>
+        <p><strong>Theme Tweaker Pro</strong> is a Visual Studio plugin that empowers you to fine-tune and customize your editor theme, inspiring a more creative and comfortable coding experience.</p>
+        
+        <h2 id="installation">Installation</h2>
+        <ol>
+            <li>Double-click the <code>ThemeTweakerPro.vsix</code> file to open the Visual Studio extension installer.</li>
+            <li>Click <strong>Install</strong> in the pop-up window.</li>
+            <li>Once the installation is complete, restart Visual Studio.</li>
+        </ol>
+        
+        <h2 id="launching">Quick-start</h2>
+        <ol>
+            <li>Open Visual Studio.</li>
+            <li>Go to <strong>Tools > Theme Tweaker Pro</strong> from the main menu to launch the tool.</li>
+            <li>Enter the serial key and email information to activate.</li>
+        </ol>
+        <div class="info-box">
+            <p><strong>Note:</strong> There are no activation limits, but an internet connection is required!</p>
+        </div>
+        
+        <h2 id="creating-theme">Creating a Theme</h2>
+        <ol>
+            <li>Choose a preset from the list.</li>
+            <li>Modify color items or use Quick Builder to quickly design a theme.</li>
+            <li>When ready, press the apply button.</li>
+            <li>Use Color Tweaker to fine-tune the code editor.</li>
+        </ol>
+        
+        <h2 id="modifying-presets">Modifying Presets</h2>
+        <h3>Create & Modify a Preset:</h3>
+        <ol>
+            <li>Choose a preset from the list.</li>
+            <li>Press the <strong>Duplicate</strong> button to create a copy.</li>
+            <li>Select a color item (e.g., Syntax Colors > Comments) and customize the color to your liking.</li>
+        </ol>
+        <div class="info-box">
+            <p><strong>Tip:</strong> Avoid editing the presets directly; always duplicate them first to preserve the original.</p>
+        </div>
+
+
+        <h3>Rename a Preset:</h3>
+        <ol>
+            <li>Double-click the preset you want to rename.</li>
+            <li>Enter a new name (duplicate names or special characters, except space and underscore, are not allowed).</li>
+        </ol>
+
+
+        <h3>Delete a Preset:</h3>
+        <ul>
+            <li>Click the <strong>trash can</strong> button next to the preset to delete it.</li>
+        </ul>
+        <div class="info-box">
+            <p><strong>Note:</strong> Deleting a preset is permanent and cannot be undone!</p>
+        </div>
+      
+        
+        <h2 id="resetting-presets">Resetting Presets</h2>
+        <ol>
+            <li>Close Visual Studio.</li>
+            <li>Navigate to <code>C:\Users\&lt;your username&gt;\Documents</code>.</li>
+            <li>Delete the <strong>Theme Tweaker</strong> folder to reset all color profiles.</li>
+        </ol>
+        <div class="tip-box">
+            <p><strong>Warning:</strong> This will reset all themes when you reopen Visual Studio. Back up your custom profiles beforehand to avoid losing your configurations!</p>
+            <br/>
+            <p><strong>Do not manually edit profiles</strong>, as this can lead to data corruption.</p>
+        </div>
+        
+        <h2 id="removing">Removing Theme Tweaker Pro</h2>
+        <ol>
+            <li>Uninstall the extension via <strong>Extensions</strong> in the Visual Studio menu.</li>
+            <li>To restore the default colors, go to <strong>Tools > Options > Fonts and Colors</strong> and click <strong>Use Defaults</strong>.</li>
+        </ol>
+
+
+
+        <h2 id="comparison">Color Tweaker vs Theme Tweaker</h2>
+        
+        <ul>
+            <li><strong>Color Tweaker:</strong> is used for code editor and syntax highlighting customization. Colors override selected theme.</li>
+            <li><strong>Theme Tweaker:</strong> is used to design the overall editor theme. Requires restart for changes to apply.</li>
+        </ul>
+        <br/>
+        <p>Combine both for best results!</p>
+
+
+      
+        <br/>
+        <br/>
+        <br/>
+        <p>I hope you find Theme Tweaker Pro useful and create your own unique color scheme just the way you like it!</p>
+        <p>For any issues, questions, or feature requests, feel free to contact me at <a href="mailto:Evan.Kolovos@gmail.com">Evan.Kolovos@gmail.com</a>.</p>
+
+
+      <br/> <br/> <br/> <br/> <br/> <br/>  <br/> <br/> <br/> <br/> <br/> <br/>
+      <br/> <br/> <br/> <br/> <br/> <br/>  <br/> <br/> <br/> <br/> <br/> <br/>
+      <br/> <br/> <br/> <br/> <br/> <br/>  <br/> <br/> <br/> <br/> <br/> <br/>
+    </div>
+</body>
+</html>
